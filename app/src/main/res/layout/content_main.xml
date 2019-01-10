@@ -13,8 +13,21 @@
     tools:context="github.kaierwen.androiddevlibrary.MainActivity"
     tools:showIn="@layout/activity_main">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    <github.kaierwen.widget.GalleryFlow
+        android:id="@+id/gallery"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!--<github.kaierwen.widget.CoverFlow-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:spacing="-5dp" />-->
+
+    <!--<GridLayout-->
+    <!--android:id="@+id/mode_picker"-->
+    <!--android:layout_width="match_parent"-->
+    <!--android:layout_height="match_parent"-->
+    <!--android:columnCount="2"-->
+    <!--android:orientation="vertical"-->
+    <!--android:rowCount="3" />-->
 </RelativeLayout>

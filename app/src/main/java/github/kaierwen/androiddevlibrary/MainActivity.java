@@ -1,52 +1,134 @@
 package github.kaierwen.androiddevlibrary;
 
+import android.content.res.Resources;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
-import android.view.View;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.design.widget.TabLayout;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.ViewPager;
+import android.util.JsonReader;
 
-public class MainActivity extends AppCompatActivity {
+import com.alibaba.fastjson.JSON;
+import com.orhanobut.logger.Logger;
+
+import java.io.InputStream;
+import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
+import java.util.ArrayList;
+import java.util.List;
+
+import butterknife.BindView;
+import github.kaierwen.androiddevlibrary.base.BaseActivity;
+import github.kaierwen.androiddevlibrary.data.DTO;
+import github.kaierwen.androiddevlibrary.frag.BaseListFragment;
+import github.kaierwen.util.StreamUtil;
+import github.kaierwen.widget.emoji.EmojiManager;
+
+public class MainActivity extends BaseActivity {
+
+    private static final String TAG = MainActivity.class.getSimpleName();
+
+    @BindView(R.id.tab_layout)
+    TabLayout tab_layout;
+    @BindView(R.id.view_pager)
+    ViewPager view_pager;
+
+    private DTO mDTO;
+    private MyAdapter mAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_main, menu);
+    public boolean needButterKnife() {
         return true;
     }
 
     @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
+    protected int getLayoutRes() {
+        return R.layout.activity_main;
+    }
 
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+    @Override
+    protected int getStatusBarColor() {
+        return R.color.white;
+    }
+
+    @Override
+    protected void init(Bundle savedInstanceState) {
+        mAdapter = new MyAdapter(getSupportFragmentManager());
+        view_pager.setAdapter(mAdapter);
+        tab_layout.setTabMode(TabLayout.MODE_SCROLLABLE);
+        tab_layout.setupWithViewPager(view_pager);
+
+        String data = "";
+        try {
+            InputStream inputStream = getResources().openRawResource(R.raw.data);
+            data = StreamUtil.inputStreamToString(inputStream);
+            Logger.d("data = " + data);
+        } catch (Resources.NotFoundException e) {
+            if (BuildConfig.DEBUG) e.printStackTrace();
         }
 
-        return super.onOptionsItemSelected(item);
+        try {
+            mDTO = JSON.parseObject(data, DTO.class);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        if (mDTO != null) {
+            mAdapter.setDatas(mDTO.getData());
+        }
+//        startActivity(new Intent(this, AndroidResizeImageActivity.class));
+        EmojiManager.getInstance(this);
+    }
+
+    private void parseJsonData() {
+        InputStream in = getResources().openRawResource(R.raw.data);
+        try {
+            JsonReader reader = new JsonReader(new InputStreamReader(in, "UTF-8"));
+        } catch (UnsupportedEncodingException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private class MyAdapter extends FragmentStatePagerAdapter {
+
+        private List<DTO.DataBean> mDatas = new ArrayList<>();
+
+        public MyAdapter(FragmentManager fm) {
+            super(fm);
+        }
+
+        public List<DTO.DataBean> getDatas() {
+            return mDatas;
+        }
+
+        public void setDatas(List<DTO.DataBean> datas) {
+            mDatas.clear();
+            mDatas.addAll(datas);
+            notifyDataSetChanged();
+        }
+
+        @Override
+        public CharSequence getPageTitle(int position) {
+            return mDatas.get(position).getTitle();
+        }
+
+        @Override
+        public Fragment getItem(int position) {
+            return BaseListFragment.newInstance(mDatas.get(position).getTitle(), mDatas.get(position).getList());
+        }
+
+        //返回POSITION_NONE，能实现Fragment删除
+        //see http://stackoverflow.com/questions/10396321/remove-fragment-page-from-viewpager-in-android
+//        @Override
+//        public int getItemPosition(Object object) {
+//            return POSITION_NONE;
+//        }
+
+        @Override
+        public int getCount() {
+            return mDatas.size();
+        }
     }
 }
+

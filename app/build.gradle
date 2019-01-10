@@ -1,14 +1,18 @@
 apply plugin: 'com.android.application'
+//apply plugin: 'com.jakewharton.butterknife'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         applicationId "github.kaierwen.androiddevlibrary"
-        minSdkVersion 15
-        targetSdkVersion 25
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
+        ndk { abiFilters "armeabi" }
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -20,11 +24,28 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:25.1.0'
-    compile 'com.android.support:design:25.1.0'
-    testCompile 'junit:junit:4.12'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':widget')
+    compile project(':util')
+    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:design:$rootProject.supportLibraryVersion"
+    compile "com.android.support:multidex:$rootProject.multidexVersion"
+    //butter knife
+    compile "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
+    compile "com.bartoszlipinski.flippablestackview:library:$rootProject.flippableStackViewVersion"
+    compile "com.alibaba:fastjson:$rootProject.fastjsonVersion"
+    compile "com.orhanobut:logger:$rootProject.loggerVersion"
+    compile "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    //emoji-compat
+    compile "com.android.support:support-emoji:$rootProject.supportLibraryVersion"
+    compile "com.android.support:support-emoji-appcompat:$rootProject.supportLibraryVersion"
+    compile "com.android.support:support-emoji-bundled:$rootProject.supportLibraryVersion"
+    //Room
+    compile "android.arch.persistence.room:runtime:$rootProject.roomLibraryVersion"
+    annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomLibraryVersion"
+}
+repositories {
+    mavenCentral()
 }

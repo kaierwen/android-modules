@@ -1,4 +1,43 @@
 <resources>
     <string name="app_name">AndroidDevLibrary</string>
     <string name="action_settings">Settings</string>
+    <string name="hello_world">hello_world</string>
+
+    <string name="title_tab_1">Widgets</string>
+    <string name="title_tab_2">Utils</string>
+    <string name="title_tab_3">WebRequest</string>
+    <string name="title_tab_4">NewOSFeatures</string>
+    <string name="title_tab_5">OpenLibrary</string>
+    <string name="title_widget_dashed_line">DashedLine虚线实现</string>
+    <string name="title_tint">Tint属性用法</string>
+    <string name="title_first_view">线性布局中第一个View（宽度是wrap可变的）占满，第二个View wrap，同时第二个View紧跟这第一个View后面</string>
+    <string name="title_emoji_compat">Emoji自定义库封装</string>
+    <string name="title_download_demo">DownloadManager使用示例</string>
+
+    <string-array name="title_tabs">
+        <item>@string/title_tab_1</item>
+        <item>@string/title_tab_2</item>
+        <item>@string/title_tab_3</item>
+        <item>@string/title_tab_4</item>
+        <item>@string/title_tab_5</item>
+    </string-array>
+
+    <string name="array_tab_5_CouponView">CouponView</string>
+
+    <string-array name="array_tab_1">
+
+    </string-array>
+    <string-array name="array_tab_2">
+
+    </string-array>
+    <string-array name="array_tab_3">
+
+    </string-array>
+    <string-array name="array_tab_4">
+
+    </string-array>
+
+    <string-array name="array_tab_5">
+        <item>@string/array_tab_5_CouponView</item>
+    </string-array>
 </resources>

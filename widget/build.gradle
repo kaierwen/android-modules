@@ -1,17 +1,14 @@
 apply plugin: 'com.android.library'
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    buildToolsVersion rootProject.ext.buildToolsVersion
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 25
+        minSdkVersion rootProject.ext.minSdkVersion
+        targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
     }
     buildTypes {
         release {
@@ -22,10 +19,24 @@ android {
 }
 
 dependencies {
-    compile fileTree(dir: 'libs', include: ['*.jar'])
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    compile 'com.android.support:appcompat-v7:25.1.0'
-    testCompile 'junit:junit:4.12'
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile project(':util')
+    compile "com.android.support:support-v4:$rootProject.supportLibraryVersion"
+    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
+    compile "com.android.support:recyclerview-v7:$rootProject.supportLibraryVersion"
+    //emoji-compat
+    compile "com.android.support:support-emoji:$rootProject.supportLibraryVersion"
+    compile "com.android.support:support-emoji-appcompat:$rootProject.supportLibraryVersion"
+    compile "com.android.support:support-emoji-bundled:$rootProject.supportLibraryVersion"
+    compile "com.androidkun:XTabLayout:$rootProject.xTabLayoutVersion"
+    //Room
+    compile "android.arch.persistence.room:runtime:$rootProject.roomLibraryVersion"
+    annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomLibraryVersion"
+    //左滑，此库修复了部分机型左滑之后会自动关闭的问题，
+    /**
+     * 要添加maven { url "https://jitpack.io" }到build.gradle
+     * allprojects {repositories {jcenter()
+     maven { url "https://jitpack.io" }}}*/
+    compile 'com.github.daimajia:AndroidSwipeLayout:f66ac6942b'
+    compile "com.orhanobut:logger:$rootProject.loggerVersion"
 }
