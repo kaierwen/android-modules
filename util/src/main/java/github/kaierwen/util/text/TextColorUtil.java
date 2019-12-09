@@ -1,4 +1,4 @@
-package github.kaierwen.util;
+package github.kaierwen.util.text;
 
 import android.text.Html;
 
