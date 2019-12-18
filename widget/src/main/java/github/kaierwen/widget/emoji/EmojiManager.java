@@ -1,14 +1,12 @@
 package github.kaierwen.widget.emoji;
 
 import android.content.Context;
-import android.support.text.emoji.EmojiCompat;
-import android.support.text.emoji.bundled.BundledEmojiCompatConfig;
 
-import com.orhanobut.logger.Logger;
+import androidx.emoji.bundled.BundledEmojiCompatConfig;
+import androidx.emoji.text.EmojiCompat;
 
 import java.util.List;
 
-import github.kaierwen.widget.emoji.db.BaseEmojiDatabase;
 import github.kaierwen.widget.emoji.db.EmojiDataRepository;
 import github.kaierwen.widget.emoji.db.entity.EmojiEntity;
 

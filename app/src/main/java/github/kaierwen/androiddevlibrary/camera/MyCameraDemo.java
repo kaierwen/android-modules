@@ -234,7 +234,7 @@ public class MyCameraDemo extends Activity {
         canvas.drawBitmap(background, 0, 0, null);
         canvas.drawBitmap(foreground, (bgWidth - fgWidth) / 2,
                 (bgHeight - fgHeight) / 2, null);
-        canvas.save(Canvas.ALL_SAVE_FLAG);
+        canvas.saveLayer(0, 0, canvas.getWidth(), canvas.getHeight(), null);
         canvas.restore();
         return newmap;
     }

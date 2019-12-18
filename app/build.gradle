@@ -5,7 +5,6 @@ apply plugin: 'kotlin-android-extensions'
 
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
-    buildToolsVersion rootProject.ext.buildToolsVersion
     defaultConfig {
         applicationId "github.kaierwen.androiddevlibrary"
         minSdkVersion rootProject.ext.minSdkVersion
@@ -13,7 +12,7 @@ android {
         versionCode 1
         versionName "1.0"
         ndk { abiFilters "armeabi" }
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
         release {
@@ -24,27 +23,33 @@ android {
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
-    compile project(':widget')
-    compile project(':util')
-    compile "com.android.support:appcompat-v7:$rootProject.supportLibraryVersion"
-    compile "com.android.support:design:$rootProject.supportLibraryVersion"
-    compile "com.android.support:multidex:$rootProject.multidexVersion"
-    //butter knife
-    compile "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
-    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
-    compile "com.bartoszlipinski.flippablestackview:library:$rootProject.flippableStackViewVersion"
-    compile "com.alibaba:fastjson:$rootProject.fastjsonVersion"
-    compile "com.orhanobut:logger:$rootProject.loggerVersion"
-    compile "com.android.support.constraint:constraint-layout:$rootProject.constraintLayoutVersion"
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation project(':widget')
+    implementation project(':util')
+    implementation project(':mydebug')
+
+    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.multidex:multidex:2.0.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+
     //emoji-compat
-    compile "com.android.support:support-emoji:$rootProject.supportLibraryVersion"
-    compile "com.android.support:support-emoji-appcompat:$rootProject.supportLibraryVersion"
-    compile "com.android.support:support-emoji-bundled:$rootProject.supportLibraryVersion"
+    implementation 'androidx.emoji:emoji:1.0.0'
+    implementation 'androidx.emoji:emoji-appcompat:1.0.0'
+    implementation 'androidx.emoji:emoji-bundled:1.0.0'
     //Room
-    compile "android.arch.persistence.room:runtime:$rootProject.roomLibraryVersion"
-    annotationProcessor "android.arch.persistence.room:compiler:$rootProject.roomLibraryVersion"
+    implementation 'androidx.room:room-runtime:2.0.0'
+    annotationProcessor 'androidx.room:room-compiler:2.0.0'
+
+    implementation 'com.google.android.material:material:1.0.0'
+    //butter knife
+    implementation "com.jakewharton:butterknife:$rootProject.butterknifeVersion"
+    annotationProcessor "com.jakewharton:butterknife-compiler:$rootProject.butterknifeVersion"
+
+    implementation "com.bartoszlipinski.flippablestackview:library:$rootProject.flippableStackViewVersion"
+    implementation "com.alibaba:fastjson:$rootProject.fastjsonVersion"
+    implementation "com.orhanobut:logger:$rootProject.loggerVersion"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
 }
 repositories {
     mavenCentral()

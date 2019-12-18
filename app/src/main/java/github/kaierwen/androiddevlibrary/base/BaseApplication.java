@@ -1,10 +1,12 @@
 package github.kaierwen.androiddevlibrary.base;
 
-import android.support.multidex.MultiDexApplication;
+import androidx.multidex.MultiDexApplication;
 
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
-import com.tencent.smtt.sdk.QbSdk;
+
+import github.kaierwen.mydebug.MyDebug;
+import github.kaierwen.androiddevlibrary.BuildConfig;
 
 /**
  * @author zhangky@chinasunfun.com
@@ -27,5 +29,8 @@ public class BaseApplication extends MultiDexApplication {
 //            }
 //        });
         Logger.addLogAdapter(new AndroidLogAdapter());
+        if (BuildConfig.DEBUG) {
+            MyDebug.beagleInit(this);
+        }
     }
 }
