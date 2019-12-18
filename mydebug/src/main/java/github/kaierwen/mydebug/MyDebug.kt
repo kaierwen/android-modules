@@ -1,8 +1,11 @@
 package github.kaierwen.mydebug
 
 import android.app.Application
+import android.content.Context
 import android.content.pm.PackageManager
 import android.graphics.Color
+import android.graphics.Point
+import android.view.WindowManager
 import android.widget.Toast
 import com.pandulapeter.beagle.Beagle
 import com.pandulapeter.beagleCore.configuration.Appearance
@@ -19,9 +22,13 @@ class MyDebug {
     companion object {
         @JvmStatic
         fun beagleInit(app: Application) {
+            var drawerWidth = getScreenWidth(app) * 0.85 //set drawerWidth 85% of screenWidth
             Beagle.imprint(
                 application = app,
-                appearance = Appearance(themeResourceId = R.style.BeagleTheme)
+                appearance = Appearance(
+                    themeResourceId = R.style.BeagleTheme,
+                    drawerWidth = drawerWidth.toInt()
+                )
             )
             val packageInfo =
                 app.packageManager.getPackageInfo(app.packageName, PackageManager.GET_ACTIVITIES)
@@ -58,5 +65,16 @@ class MyDebug {
 
         private fun String.showToast(app: Application) =
             Toast.makeText(app, this, Toast.LENGTH_SHORT).show()
+
+        /**
+         * see https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/src/main/java/com/blankj/utilcode/util/ScreenUtils.java
+         */
+        private fun getScreenWidth(app: Application): Int {
+            val windowManager: WindowManager =
+                app.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+            var point = Point()
+            windowManager.defaultDisplay.getRealSize(point)
+            return point.x
+        }
     }
 }
