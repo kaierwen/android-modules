@@ -6,7 +6,7 @@ apply plugin: 'kotlin-android-extensions'
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     defaultConfig {
-        applicationId "github.kaierwen.androiddevlibrary"
+        applicationId "com.github.kaierwen.androiddevlibrary"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -49,6 +49,10 @@ dependencies {
     implementation "com.alibaba:fastjson:$rootProject.fastjsonVersion"
     implementation "com.orhanobut:logger:$rootProject.loggerVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+
+    androidTestCompile('androidx.test.espresso:espresso-core:3.1.0', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
 
 }
 repositories {

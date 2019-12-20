@@ -14,7 +14,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <github.kaierwen.widget.DashedLineView
+    <com.github.kaierwen.widget.DashedLineView
         android:id="@+id/dashedLineH"
         android:layout_width="0dp"
         android:layout_height="10dp"
@@ -38,7 +38,7 @@
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@id/dashedLineH" />
 
-    <github.kaierwen.widget.DashedLineView
+    <com.github.kaierwen.widget.DashedLineView
         android:id="@+id/dashedLineV"
         android:layout_width="10dp"
         android:layout_height="0dp"

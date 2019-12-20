@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="github.kaierwen.widget">
+    package="com.github.kaierwen.widget">
 
     <application android:supportsRtl="true">
 

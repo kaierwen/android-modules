@@ -1,6 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
 
-    package="github.kaierwen.util">
+    package="com.github.kaierwen.util">
 
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <application

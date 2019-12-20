@@ -8,7 +8,7 @@
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
-        <github.kaierwen.widget.RoundViewGroup
+        <com.github.kaierwen.widget.RoundViewGroup
             android:id="@+id/round_view"
             android:layout_width="match_parent"
             android:layout_height="200dp"
@@ -16,7 +16,7 @@
             android:background="@drawable/bg_primary_a10"
             android:clipChildren="true" />
 
-        <github.kaierwen.widget.RoundViewGroup
+        <com.github.kaierwen.widget.RoundViewGroup
             android:layout_width="match_parent"
             android:layout_height="200dp"
             android:layout_margin="60dp"
@@ -29,6 +29,6 @@
                 android:layout_height="wrap_content"
                 android:background="@color/colorPrimary"
                 android:src="@mipmap/lollipop" />
-        </github.kaierwen.widget.RoundViewGroup>
+        </com.github.kaierwen.widget.RoundViewGroup>
     </LinearLayout>
 </ScrollView>
