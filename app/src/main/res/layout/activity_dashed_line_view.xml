@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="@dimen/activity_horizontal_margin">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="横虚线"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <com.github.kaierwen.widget.DashedLineView
+        android:id="@+id/dashedLineH"
+        android:layout_width="0dp"
+        android:layout_height="10dp"
+        android:layout_marginTop="10dp"
+        app:color="@color/colorPrimary"
+        app:dashGap="1dp"
+        app:dashLength="2dp"
+        app:dashThickness="1dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textView2"
+        app:orientation="horizontal" />
+
+    <TextView
+        android:id="@+id/textViewV"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="竖虚线"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/dashedLineH" />
+
+    <com.github.kaierwen.widget.DashedLineView
+        android:id="@+id/dashedLineV"
+        android:layout_width="10dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="10dp"
+        app:color="@color/colorAccent"
+        app:dashGap="5dp"
+        app:dashLength="20dp"
+        app:dashThickness="1dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/textViewV"
+        app:orientation="vertical" />
+</androidx.constraintlayout.widget.ConstraintLayout>

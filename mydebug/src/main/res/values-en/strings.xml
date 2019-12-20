@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">mydebug</string>
+    <string name="mydebug_built_time">Built time</string>
+    <string name="mydebug_built_time_beijing">GMT+8:00</string>
+    <string name="mydebug_package">Package</string>
+    <string name="mydebug_version_name">Version name</string>
+    <string name="mydebug_version_code">Version code</string>
+    <string name="mydebug_app_info">App Info</string>
+    <string name="mydebug_screen_shot">Screenshot</string>
+    <string name="mydebug_force_crash">Force crash</string>
+    <string name="mydebug_show_grid">Show grids</string>
+    <string name="mydebug_show_bounds">Show bounds</string>
+    <string name="mydebug_environment_h5">Switch h5 address</string>
+    <string name="mydebug_environment_api">Api addr</string>
+    <string name="mydebug_device_info">Device information</string>
+    <string name="mydebug_device_manufacturer">Manufacturer</string>
+    <string name="mydebug_device_model">Model</string>
+    <string name="mydebug_device_resolution">Screen</string>
+    <string name="mydebug_device_android_sdk">Android Version</string>
+    <string name="mydebug_set_success">"Set success, restart take affect "</string>
+</resources>

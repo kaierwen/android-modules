@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="time_format_standard_12hours">yyyy年MM月dd日 hh:mm:ss</string>
+    <string name="time_format_standard_24hours">yyyy年MM月dd日 HH:mm:ss</string>
+    <string name="time_format_month">yyyy年MM月</string>
+    <string name="time_format_day">yyyy年MM月dd日</string>
+</resources>

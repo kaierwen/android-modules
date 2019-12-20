@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="time_format_standard_12hours">yyyy-MM-dd日 hh:mm:ss</string>
+    <string name="time_format_standard_24hours">yyyy-MM-dd日 HH:mm:ss</string>
+    <string name="time_format_month">yyyy-MM</string>
+    <string name="time_format_day">yyyy-MM-dd</string>
+    <!--&#160;&#160;&#8201;代表一个汉字空格，see <a href="http://blog.csdn.net/u014651216/article/details/52411113"/>-->
+    <string name="splash_slogan">你&#160;&#160;&#8201;好</string>
+
+    <!--&#8194;半个中文字更准确点，-->
+    <!--&#8195;一个中文字但用起来会比中文字宽一点点。-->
+    <!--所以中文对齐还是建议使用&#8194;，-->
+    <!--而&#160; &#8201;在不同机型有不同表现。-->
+    <string name="appoint_first">甲&#8194;&#8194;&#8194;&#8194;方</string>
+    <string name="appoint_second">乙&#8194;&#8194;&#8194;&#8194;方</string>
+</resources>
