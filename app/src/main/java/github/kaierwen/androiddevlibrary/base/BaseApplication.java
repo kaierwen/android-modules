@@ -5,8 +5,8 @@ import androidx.multidex.MultiDexApplication;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
-import github.kaierwen.mydebug.MyDebug;
 import github.kaierwen.androiddevlibrary.BuildConfig;
+import github.kaierwen.mydebug.MyDebug;
 
 /**
  * @author zhangky@chinasunfun.com
@@ -30,7 +30,8 @@ public class BaseApplication extends MultiDexApplication {
 //        });
         Logger.addLogAdapter(new AndroidLogAdapter());
         if (BuildConfig.DEBUG) {
-            MyDebug.beagleInit(this);
+            MyDebug.getMyBeagle().init(this);
+            Logger.d("onCreate() , MyDebug.getVersion() = %s", MyDebug.getMyBeagle().getVersion());
         }
     }
 }

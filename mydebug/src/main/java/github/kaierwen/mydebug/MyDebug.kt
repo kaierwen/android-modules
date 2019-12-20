@@ -1,15 +1,6 @@
 package github.kaierwen.mydebug
 
-import android.app.Application
-import android.content.Context
-import android.content.pm.PackageManager
-import android.graphics.Color
-import android.graphics.Point
-import android.view.WindowManager
-import android.widget.Toast
-import com.pandulapeter.beagle.Beagle
-import com.pandulapeter.beagleCore.configuration.Appearance
-import com.pandulapeter.beagleCore.configuration.Trick
+import github.kaierwen.mydebug.beagle.MyBeagle
 
 /**
  * 调试入口
@@ -21,60 +12,8 @@ class MyDebug {
 
     companion object {
         @JvmStatic
-        fun beagleInit(app: Application) {
-            var drawerWidth = getScreenWidth(app) * 0.85 //set drawerWidth 85% of screenWidth
-            Beagle.imprint(
-                application = app,
-                appearance = Appearance(
-                    themeResourceId = R.style.BeagleTheme,
-                    drawerWidth = drawerWidth.toInt()
-                )
-            )
-            val packageInfo =
-                app.packageManager.getPackageInfo(app.packageName, PackageManager.GET_ACTIVITIES)
-            var appInfo: StringBuilder = StringBuilder()
-            appInfo.append(app.resources.getString(R.string.mydebug_built_time)).append(" -> ")
-                .append(BuildConfig.MYDEBUG_BUILD_DATE).append(" ")
-                .append(app.resources.getString(R.string.mydebug_built_time_beijing)).append("\n")
-                .append(app.resources.getString(R.string.mydebug_package)).append(" -> ")
-                .append(app.packageName).append("\n")
-                .append(app.resources.getString(R.string.mydebug_version_name)).append(" -> v")
-                .append(packageInfo.versionName).append("\n")
-                .append(app.resources.getString(R.string.mydebug_version_code))
-                .append(" -> ").append(packageInfo.versionCode)
-
-            Beagle.learn(
-                listOf(
-                    Trick.Header(
-                        title = app.resources.getString(R.string.app_name),
-                        text = appInfo.toString()
-                    ),
-                    Trick.AppInfoButton(),
-                    Trick.ScreenshotButton(),
-                    Trick.ForceCrashButton(),
-                    Trick.KeylineOverlayToggle(
-                        gridColor = Color.BLUE
-                    ),
-                    Trick.ViewBoundsOverlayToggle(
-                        color = Color.CYAN
-                    ),
-                    Trick.DeviceInformationKeyValue()
-                )
-            )
-        }
-
-        private fun String.showToast(app: Application) =
-            Toast.makeText(app, this, Toast.LENGTH_SHORT).show()
-
-        /**
-         * see https://github.com/Blankj/AndroidUtilCode/blob/master/lib/utilcode/src/main/java/com/blankj/utilcode/util/ScreenUtils.java
-         */
-        private fun getScreenWidth(app: Application): Int {
-            val windowManager: WindowManager =
-                app.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-            var point = Point()
-            windowManager.defaultDisplay.getRealSize(point)
-            return point.x
+        fun getMyBeagle(): MyBeagle {
+            return MyBeagle.instance
         }
     }
 }

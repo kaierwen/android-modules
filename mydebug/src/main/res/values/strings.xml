@@ -8,13 +8,14 @@
     <string name="mydebug_app_info">应用信息</string>
     <string name="mydebug_screen_shot">截图（不含侧滑面板）</string>
     <string name="mydebug_force_crash">强制崩溃</string>
-    <string name="mydebug_show_grid">显示网格（UI）</string>
-    <string name="mydebug_show_bounds">显示控件边界（UI）</string>
-    <string name="mydebug_environment_h5">Web页面地址</string>
+    <string name="mydebug_show_grid">显示网格</string>
+    <string name="mydebug_show_bounds">显示控件边界</string>
+    <string name="mydebug_environment_h5">切换H5环境</string>
     <string name="mydebug_environment_api">后台接口地址</string>
     <string name="mydebug_device_info">设备信息</string>
     <string name="mydebug_device_manufacturer">厂家</string>
     <string name="mydebug_device_model">型号</string>
     <string name="mydebug_device_resolution">分辨率和DPI</string>
     <string name="mydebug_device_android_sdk">安卓系统版本</string>
+    <string name="mydebug_set_success">设置成功，请重启APP</string>
 </resources>
