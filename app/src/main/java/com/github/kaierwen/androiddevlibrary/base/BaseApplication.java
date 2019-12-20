@@ -31,7 +31,7 @@ public class BaseApplication extends MultiDexApplication {
         Logger.addLogAdapter(new AndroidLogAdapter());
         if (BuildConfig.DEBUG) {
             MyDebug.getMyBeagle().init(this);
-            Logger.d("onCreate() , MyDebug.getVersion() = %s", MyDebug.getMyBeagle().getVersion());
+            Logger.d("onCreate() , MyDebug.getMyBeagle().getVersion() = %s", MyDebug.getMyBeagle().getVersion());
         }
     }
 }

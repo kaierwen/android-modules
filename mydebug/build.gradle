@@ -8,8 +8,8 @@ android {
     defaultConfig {
         minSdkVersion 21
         targetSdkVersion 29
-        versionCode 20191218
-        versionName "2019.12.18"
+        versionCode 1
+        versionName "0.0.1"
         buildConfigField("String", "MYDEBUG_BUILD_DATE", "\"${new Date().format("yyyy-MM-dd HH:mm:ss")}\"")
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
@@ -36,4 +36,15 @@ dependencies {
     api "com.github.pandulapeter.beagle:beagle:$beagleVersion"
 //    debugImplementation "com.github.pandulapeter.beagle:beagle:$beagleVersion"
 //    releaseImplementation "com.github.pandulapeter.beagle:beagle-noop:$beagleVersion"
+}
+
+apply plugin: 'com.novoda.bintray-release' // must be applied after your artifact generating plugin (eg. java / com.android.library)
+
+publish {
+    userOrg = 'kaierwen'
+    groupId = 'com.github.kaierwen'
+    artifactId = 'mydebug'
+    publishVersion = '0.0.1'
+    desc = 'My android debug module'
+    website = 'https://github.com/kaierwen/android-modules'
 }

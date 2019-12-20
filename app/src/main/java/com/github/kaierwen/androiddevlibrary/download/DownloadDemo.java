@@ -53,7 +53,7 @@ public class DownloadDemo extends BaseActivity {
         unregisterReceiver(onNotificationClick);
     }
 
-    void startDownload(View v) {
+    public void startDownload(View v) {
         Uri uri = Uri.parse("http://commonsware.com/misc/test.mp4");
 
         Environment

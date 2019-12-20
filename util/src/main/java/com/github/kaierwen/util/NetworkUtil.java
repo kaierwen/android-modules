@@ -1,12 +1,16 @@
 package com.github.kaierwen.util;
 
+import android.Manifest;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.telephony.TelephonyManager;
 import android.util.Log;
+
+import androidx.core.app.ActivityCompat;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -319,6 +323,16 @@ public class NetworkUtil {
         String provider = "未知";
         try {
             TelephonyManager telephonyManager = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+            if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+                // TODO: Consider calling
+                //    ActivityCompat#requestPermissions
+                // here to request the missing permissions, and then overriding
+                //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+                //                                          int[] grantResults)
+                // to handle the case where the user grants the permission. See the documentation
+                // for ActivityCompat#requestPermissions for more details.
+                return "";
+            }
             String IMSI = telephonyManager.getSubscriberId();
             Log.v("tag", "getProvider.IMSI:" + IMSI);
             if (IMSI == null) {
@@ -515,6 +529,16 @@ public class NetworkUtil {
      */
     public static String getImei(Context context) {
         TelephonyManager mTelephonyMgr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return "";
+        }
         String imei = mTelephonyMgr.getDeviceId();
         if (imei == null) {
             imei = "000000000000000";
@@ -524,6 +548,16 @@ public class NetworkUtil {
 
     public static String getPhoneImsi(Context context) {
         TelephonyManager mTelephonyMgr = (TelephonyManager) context.getSystemService(Context.TELEPHONY_SERVICE);
+        if (ActivityCompat.checkSelfPermission(context, Manifest.permission.READ_PHONE_STATE) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return "";
+        }
         return mTelephonyMgr.getSubscriberId();
     }
 
