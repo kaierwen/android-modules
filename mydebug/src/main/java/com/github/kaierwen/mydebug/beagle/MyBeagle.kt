@@ -7,14 +7,12 @@ import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.Point
 import android.view.WindowManager
-import android.widget.EditText
 import android.widget.Toast
-import com.pandulapeter.beagle.Beagle
-import com.pandulapeter.beagleCore.configuration.Appearance
-import com.pandulapeter.beagleCore.configuration.Positioning
-import com.pandulapeter.beagleCore.configuration.Trick
 import com.github.kaierwen.mydebug.BuildConfig
 import com.github.kaierwen.mydebug.R
+import com.pandulapeter.beagle.Beagle
+import com.pandulapeter.beagleCore.configuration.Appearance
+import com.pandulapeter.beagleCore.configuration.Trick
 
 /**
  * beagle库入口
@@ -28,7 +26,20 @@ class MyBeagle {
         val instance = MyBeagle()
     }
 
+    /**
+     * 初始化
+     * @param app  Application
+     */
     fun init(app: Application) {
+        init(app, "")
+    }
+
+    /**
+     * 初始化
+     * @param app  Application
+     * @param buildTime 编译时间
+     */
+    fun init(app: Application, buildTime: String) {
         var drawerWidth = getScreenWidth(app) * 0.85 //set drawerWidth 85% of screenWidth
         Beagle.imprint(
             application = app,
@@ -40,10 +51,12 @@ class MyBeagle {
         val packageInfo =
             app.packageManager.getPackageInfo(app.packageName, PackageManager.GET_ACTIVITIES)
         var appInfo: StringBuilder = StringBuilder()
-        appInfo.append(app.resources.getString(R.string.mydebug_built_time)).append(" -> ")
-            .append(BuildConfig.MYDEBUG_BUILD_DATE).append(" ")
-            .append(app.resources.getString(R.string.mydebug_built_time_beijing)).append("\n")
-            .append(app.resources.getString(R.string.mydebug_package)).append(" -> ")
+        if (buildTime.isNotEmpty()) {
+            appInfo.append(app.resources.getString(R.string.mydebug_built_time)).append(" -> ")
+                .append(buildTime).append(" ")
+                .append(app.resources.getString(R.string.mydebug_built_time_beijing)).append("\n")
+        }
+        appInfo.append(app.resources.getString(R.string.mydebug_package)).append(" -> ")
             .append(app.packageName).append("\n")
             .append(app.resources.getString(R.string.mydebug_version_name)).append(" -> v")
             .append(packageInfo.versionName).append("\n")

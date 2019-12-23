@@ -13,6 +13,7 @@ android {
         versionName "1.0"
         ndk { abiFilters "armeabi" }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        buildConfigField("String", "BUILD_DATE", "\"${new Date().format("yyyy-MM-dd HH:mm:ss")}\"")
     }
     buildTypes {
         release {
