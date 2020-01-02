@@ -16,6 +16,7 @@ import com.github.kaierwen.androiddevlibrary.data.DTO;
 import com.github.kaierwen.androiddevlibrary.download.DownloadDemo;
 import com.github.kaierwen.androiddevlibrary.openlibrary.KotlinActivity;
 import com.github.kaierwen.androiddevlibrary.openlibrary.X5WebViewActivity;
+import com.github.kaierwen.androiddevlibrary.widgets.CircularProgressBarActivity;
 import com.github.kaierwen.androiddevlibrary.widgets.CustomViewActivity;
 import com.github.kaierwen.androiddevlibrary.widgets.DashedLineViewAcitivty;
 import com.github.kaierwen.androiddevlibrary.widgets.EmojiCompatActivity;
@@ -106,6 +107,8 @@ public class BaseListFragment extends ListFragment {
             startActivity(new Intent(getActivity(), EmojiCompatActivity.class));
         } else if ("DownloadManager Test".equals(text)) {
             startActivity(new Intent(getActivity(), DownloadDemo.class));
+        } else if ("CircularProgressBar".equals(text)) {
+            startActivity(new Intent(getActivity(), CircularProgressBarActivity.class));
         }
     }
 

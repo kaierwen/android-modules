@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="github.kaierwen.androiddevlibrary">
+    package="com.github.kaierwen.androiddevlibrary">
 
     <!-- Tell the system this app requires OpenGL ES 2.0. -->
     <uses-feature
@@ -55,6 +55,7 @@
         <activity
             android:name="com.github.kaierwen.androiddevlibrary.download.DownloadDemo"
             android:label="@string/title_download_demo" />
+        <activity android:name="com.github.kaierwen.androiddevlibrary.widgets.CircularProgressBarActivity" />
     </application>
 
 </manifest>

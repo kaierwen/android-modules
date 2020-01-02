@@ -65,6 +65,10 @@
         {
           "text": "EmojiCompat",
           "url": "Emoji组件封装"
+        },
+        {
+          "text": "CircularProgressBar",
+          "url": "https://github.com/lopspower/CircularProgressBar"
         }
       ]
     },

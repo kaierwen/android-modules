@@ -11,7 +11,6 @@ android {
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
         versionName "1.0"
-        ndk { abiFilters "armeabi" }
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "BUILD_DATE", "\"${new Date().format("yyyy-MM-dd HH:mm:ss")}\"")
     }
@@ -58,10 +57,15 @@ dependencies {
     implementation "com.orhanobut:logger:$rootProject.loggerVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
 
+    implementation 'com.mikhaellopez:circularprogressbar:3.0.3'
+    implementation 'com.github.jakob-grabner:Circle-Progress-View:1.4'
+    implementation 'com.github.lzyzsd:circleprogress:1.2.1'
+
     androidTestCompile('androidx.test.espresso:espresso-core:3.1.0', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
 
+    implementation 'com.blankj:utilcodex:1.26.0'
 }
 repositories {
     mavenCentral()

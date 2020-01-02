@@ -1,8 +1,10 @@
 package com.github.kaierwen.androiddevlibrary;
 
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.JsonReader;
+import android.view.WindowManager;
 
 import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
@@ -12,6 +14,11 @@ import androidx.viewpager.widget.ViewPager;
 import com.alibaba.fastjson.JSON;
 import com.github.kaierwen.androiddevlibrary.base.BaseActivity;
 import com.github.kaierwen.androiddevlibrary.data.DTO;
+import com.github.kaierwen.androiddevlibrary.frag.BaseListFragment;
+import com.github.kaierwen.util.CutoutUtil;
+import com.github.kaierwen.util.ScreenUtil;
+import com.github.kaierwen.util.StreamUtil;
+import com.github.kaierwen.widget.emoji.EmojiManager;
 import com.google.android.material.tabs.TabLayout;
 import com.orhanobut.logger.Logger;
 
@@ -24,10 +31,6 @@ import java.util.List;
 import butterknife.BindView;
 import github.kaierwen.androiddevlibrary.BuildConfig;
 import github.kaierwen.androiddevlibrary.R;
-
-import com.github.kaierwen.androiddevlibrary.frag.BaseListFragment;
-import com.github.kaierwen.util.StreamUtil;
-import com.github.kaierwen.widget.emoji.EmojiManager;
 
 public class MainActivity extends BaseActivity {
 
@@ -83,6 +86,27 @@ public class MainActivity extends BaseActivity {
         }
 //        startActivity(new Intent(this, AndroidResizeImageActivity.class));
         EmojiManager.getInstance(this);
+
+        ScreenUtil.getStatusBarHeight(getResources());
+        CutoutUtil.printCutoutParams(this);
+
+
+//        WindowManager.LayoutParams lp = getWindow().getAttributes();
+//
+//        //下面图1
+////        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+////            lp.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_NEVER;
+////        }
+//        //下面图2
+////        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+////            lp.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_SHORT_EDGES;
+////        }
+//        //下面图3
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.P) {
+//            lp.layoutInDisplayCutoutMode = WindowManager.LayoutParams.LAYOUT_IN_DISPLAY_CUTOUT_MODE_DEFAULT;
+//        }
+//        getWindow().setAttributes(lp);
+
     }
 
     private void parseJsonData() {
