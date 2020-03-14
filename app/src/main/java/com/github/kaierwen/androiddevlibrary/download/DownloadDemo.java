@@ -15,7 +15,7 @@ import android.widget.Toast;
 
 import com.github.kaierwen.androiddevlibrary.base.BaseActivity;
 
-import github.kaierwen.androiddevlibrary.R;
+import com.github.kaierwen.androiddevlibrary.R;
 
 /**
  * @author kaiyuan.zhang

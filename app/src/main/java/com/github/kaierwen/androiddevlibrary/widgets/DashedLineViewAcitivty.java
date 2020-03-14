@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.github.kaierwen.androiddevlibrary.base.BaseActivity;
 
-import github.kaierwen.androiddevlibrary.R;
+import com.github.kaierwen.androiddevlibrary.R;
 
 /**
  * 展示虚线

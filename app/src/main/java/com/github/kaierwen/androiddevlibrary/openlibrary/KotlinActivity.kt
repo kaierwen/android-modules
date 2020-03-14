@@ -4,7 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.orhanobut.logger.Logger
-import github.kaierwen.androiddevlibrary.R
+import com.github.kaierwen.androiddevlibrary.R
 import kotlinx.android.synthetic.main.activity_kotlin.*
 
 class KotlinActivity : AppCompatActivity() {

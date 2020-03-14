@@ -1,1 +1,1 @@
-include ':app', ':widget', ':util', ':mydebug', ':mywechat'
+include ':app', ':widget', ':util', ':mydebug', ':mywechat', ':network'

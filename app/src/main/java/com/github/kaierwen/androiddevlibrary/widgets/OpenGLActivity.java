@@ -2,7 +2,7 @@ package com.github.kaierwen.androiddevlibrary.widgets;
 
 import android.os.Bundle;
 
-import github.kaierwen.androiddevlibrary.R;
+import com.github.kaierwen.androiddevlibrary.R;
 import com.github.kaierwen.androiddevlibrary.base.BaseActivity;
 
 /**

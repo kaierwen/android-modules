@@ -5,7 +5,7 @@ import androidx.multidex.MultiDexApplication;
 import com.orhanobut.logger.AndroidLogAdapter;
 import com.orhanobut.logger.Logger;
 
-import github.kaierwen.androiddevlibrary.BuildConfig;
+import com.github.kaierwen.androiddevlibrary.BuildConfig;
 import com.github.kaierwen.mydebug.MyDebug;
 
 /**

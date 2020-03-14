@@ -13,7 +13,7 @@ import android.view.WindowManager;
 
 import java.io.IOException;
 
-import github.kaierwen.androiddevlibrary.R;
+import com.github.kaierwen.androiddevlibrary.R;
 
 /**
  * @author zhangky@chinasunfun.com

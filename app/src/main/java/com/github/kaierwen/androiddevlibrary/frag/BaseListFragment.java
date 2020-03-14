@@ -28,7 +28,7 @@ import com.github.kaierwen.androiddevlibrary.widgets.TintActivity;
 import java.util.ArrayList;
 import java.util.List;
 
-import github.kaierwen.androiddevlibrary.R;
+import com.github.kaierwen.androiddevlibrary.R;
 
 /**
  * @author zhangky@chinasunfun.com

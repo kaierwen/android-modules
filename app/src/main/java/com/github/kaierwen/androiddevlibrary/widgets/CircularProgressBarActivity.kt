@@ -2,7 +2,7 @@ package com.github.kaierwen.androiddevlibrary.widgets
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
-import github.kaierwen.androiddevlibrary.R
+import com.github.kaierwen.androiddevlibrary.R
 import kotlinx.android.synthetic.main.activity_circular_progress_bar.*
 
 /**

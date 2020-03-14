@@ -10,8 +10,9 @@ android {
         minSdkVersion 15
         targetSdkVersion 29
         versionCode 1
-        versionName "0.0.1"
+        versionName "1.0"
 
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles 'consumer-rules.pro'
     }
 
@@ -29,17 +30,7 @@ dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
     implementation 'androidx.appcompat:appcompat:1.1.0'
     implementation 'androidx.core:core-ktx:1.1.0'
-    api 'junit:junit:4.12'
-    api 'com.tencent.mm.opensdk:wechat-sdk-android-without-mta:5.5.8'
-}
-
-apply plugin: 'com.novoda.bintray-release' // must be applied after your artifact generating plugin (eg. java / com.android.library)
-
-publish {
-    userOrg = 'kaierwen'
-    groupId = 'com.github.kaierwen'
-    artifactId = 'mywechat'
-    publishVersion = '0.0.1'
-    desc = 'My android wechat module'
-    website = 'https://github.com/kaierwen/android-modules'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.0'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.1'
 }

@@ -4,7 +4,7 @@ import android.os.Bundle;
 
 import com.github.kaierwen.androiddevlibrary.base.BaseActivity;
 
-import github.kaierwen.androiddevlibrary.R;
+import com.github.kaierwen.androiddevlibrary.R;
 
 /**
  * 线性布局中第一个View（宽度是wrap可变的）占满，第二个View wrap，同时第二个View紧跟这第一个View后面

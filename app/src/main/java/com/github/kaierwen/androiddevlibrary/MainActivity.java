@@ -29,8 +29,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import butterknife.BindView;
-import github.kaierwen.androiddevlibrary.BuildConfig;
-import github.kaierwen.androiddevlibrary.R;
+import com.github.kaierwen.androiddevlibrary.BuildConfig;
+import com.github.kaierwen.androiddevlibrary.R;
 
 public class MainActivity extends BaseActivity {
 
